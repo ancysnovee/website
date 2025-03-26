@@ -19,3 +19,8 @@ def website(user_role, selected_courses=None, new_course=None):
         return "Admin function is not implemented yet."
 
     return "Invalid role"
+
+
+if __name__=="__main__":
+    print(website(1,["kannada","maths"]))
+    print(website(2,["kkkk"]))
