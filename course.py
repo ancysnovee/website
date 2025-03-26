@@ -1,27 +1,21 @@
-def website():
-    courses = ["maths","kannada","english","social","science"]
-    student_course=[]
-    user = int(input("enter your role: \npress 1 if student \npress 2 if instructor \npress 3 if admin \n"))
-    if user==1:
-        print("the available courses are: ")
-        for i in courses:
-            print(i)
-        print("press 1 if entered all your course")
-        course=2
-        while course != "1":
-            course= input("enter your course: ")
-            if course in courses:
-                student_course.append(course)
-            else:
-                print("invalid input")
+
+def website(user_role, selected_courses=None, new_course=None):
+    courses = ["maths", "kannada", "english", "social", "science"]
+    student_course = selected_courses if selected_courses else []
+
+    if user_role == 1: 
+        if selected_courses is None:
+            selected_courses = [] 
+        if not selected_courses:  
+            student_course.append("maths")  
         return f"you have enrolled successfully in the following course:\n{student_course}"
 
-    if user == 2:
-        new_course = input("enter the course name")
-        courses.append(new_course)
-        return f"the course have been added successfully: {courses}"
-    
+    if user_role == 2:  
+        if new_course:
+            courses.append(new_course)
+        return f"the course has been added successfully: {courses}"
 
+    if user_role == 3:  
+        return "Admin function is not implemented yet."
 
-if __name__=="__main__":
-    print(website())
+    return "Invalid role"
