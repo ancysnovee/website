@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage("adding"){
             steps{
-                url:"https://github.com/ancysnovee/website.git" , branch:main
+                git url:"https://github.com/ancysnovee/website.git" , branch:main
             }
         }
         stage("dependency") {
@@ -16,7 +16,7 @@ pipeline{
                 '''
             }
         }
-        stage ("testing){
+        stage ("testing"){
             steps{
                 bat '''
                     call venv\\Scripts\\activate
