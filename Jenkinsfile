@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage("adding"){
             steps{
-                git url:"https://github.com/ancysnovee/website.git" , branch:main
+                git url:"https://github.com/ancysnovee/website.git" , branch:"main"
             }
         }
         stage("dependency") {
